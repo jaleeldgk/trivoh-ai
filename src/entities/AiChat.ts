@@ -3,32 +3,32 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeor
 @Entity('ai_chat')
 export class AiChat {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column({ nullable: true })
-  user_id: number;
+  user_id!: number;
 
   @Column()
-  email: string;
+  email!: string;
 
   @Column()
-  type: string; // by default 'chat' otherwise 'html'
+  type!: string;
 
   @Column()
-  message: string;
+  message!: string;
 
   @Column({ type: 'enum', enum: ['user', 'ai'] })
-  sender: 'user' | 'ai';
+  sender!: 'user' | 'ai';
 
   @Column({ nullable: true })
-  ip_address: string;
+  ip_address!: string;
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at!: Date;
 
   @Column({ default: false })
-  viewed: boolean;
+  viewed!: boolean;
 
   @Column({ nullable: true })
-  uuid: string;
+  uuid!: string;
 }

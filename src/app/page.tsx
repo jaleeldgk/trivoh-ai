@@ -66,7 +66,7 @@ export default function Home() {
 
       // If HTML content is present, generate modal
       if (html) {
-        modalId = uuidv4();
+        let modalId: string = uuidv4();
         setModals((prev) => [
           ...prev,
           { id: modalId, html, visible: false },

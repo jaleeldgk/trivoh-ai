@@ -5,7 +5,7 @@ import { AiChat } from '@/entities/AiChat';
 
 export async function POST(req: NextRequest) {
   const { message, email, uuid, sender, type } = await req.json();
-  const ip = req.headers.get('x-forwarded-for') || req.ip || 'unknown';
+  const ip = req.headers.get('x-forwarded-for') || 'unknown';
 
   if (!AppDataSource.isInitialized) {
     await AppDataSource.initialize();
