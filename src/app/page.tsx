@@ -59,19 +59,18 @@ export default function Home() {
       });
 
       const data = await res.json();
+      console.log('Data', data);
       const html = data[0].htmlResponse;
       const chat = data[0].chatResponse;
 
-      let modalId: string | undefined;
-
       // If HTML content is present, generate modal
+      let modalId: string = uuidv4();
       if (html) {
-        let modalId: string = uuidv4();
         setModals((prev) => [
           ...prev,
           { id: modalId, html, visible: false },
         ]);
-
+        console.log('html', html);
         await saveChatToDB(html, 'ai', payload.email, payload.uuid, 'html');
 
       }else{
